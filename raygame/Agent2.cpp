@@ -18,7 +18,7 @@ void Agent2::start()
 {
 	Character::start(); Character::start();
 	SeekNMComponent* seekComponent = new SeekNMComponent();
-	addComponent(seekComponent)
+	addComponent(seekComponent);
 	//add steering behaviours here
 }
 
