@@ -1,6 +1,11 @@
 #pragma once
 #include "Character.h"
 
+enum State
+{
+
+};
+
 class Agent2 :
     public Character
 {
@@ -19,6 +24,9 @@ public:
     virtual void update(float deltaTime) override;
     virtual void onDeath();
     virtual void onDamageRecieved() {};
+
+private:
+    State m_currentState;
 };
 
 

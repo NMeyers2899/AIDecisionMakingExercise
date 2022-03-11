@@ -83,6 +83,9 @@
     <ClCompile Include="ScoreBoard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SeekNMComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -153,6 +156,9 @@
     </ClInclude>
     <ClInclude Include="ScoreBoard.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SeekNMComponent.h">
+      <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
