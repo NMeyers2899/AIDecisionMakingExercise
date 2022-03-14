@@ -26,6 +26,7 @@ void Agent2::start()
 	m_seekComponent = new SeekNMComponent(2000);
 	m_fleeComponent = new FleeNMComponent(200);
 	NMShield* agentShield = new NMShield(Engine::getScreenWidth() - 250.0f, 400, "Agent2", 50, 50, 3);
+	agentShield->getTransform()->setScale({ 100, 100 });
 	getTransform()->addChild(agentShield->getTransform());
 	
 	//add steering behaviours here
