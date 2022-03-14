@@ -10,6 +10,7 @@ enum State
     SEEK_GOAL
 };
 
+class SeekCGComponent;
 
 class Agent1 :
     public Character
@@ -31,7 +32,7 @@ public:
     virtual void onDamageRecieved() {};
 
 private:
-    State m_currentState;
-
+    State m_currentState = SEEK_BALL;
+    SeekCGComponent* m_seekComponent;
 };
 

@@ -5,10 +5,14 @@
 #include "SeekCGComponent.h"
 #include "SteeringComponent.h"
 #include "MoveComponent.h"
+#include "Transform2D.h"
+#include "Character.h"
+
 
 Agent1::Agent1(float x, float y, const char* name, float maxForce, float maxSpeed, float health) : Character(x, y, name, maxForce, maxSpeed, health)
 {
 	addComponent(new SpriteComponent("Images/player.png"));
+	
 }
 
 void Agent1::onCollision(Actor* actor)
@@ -19,9 +23,11 @@ void Agent1::onCollision(Actor* actor)
 void Agent1::start()
 {
 	Character::start();
-	SeekCGComponent* seekComponent = new SeekCGComponent(GameManager::getInstance()->getBallPosition(), 50);
+	
+	m_seekComponent->setTarget(GameManager::getInstance()->getAgent2());
 
-	addComponent(seekComponent);
+	addComponent(m_seekComponent);
+	
 }
 
 void Agent1::update(float deltaTime)
@@ -31,16 +37,23 @@ void Agent1::update(float deltaTime)
 	switch (m_currentState)
 	{
 	case SEEK_BALL:
+		m_seekComponent->setTarget(GameManager::getInstance()->getBallPosition);
 		if (getHasBall())
 			m_currentState = SEEK_GOAL;
 		else if (GameManager::getInstance()->getAgent1()->getHasBall())
 			m_currentState = SEEK_PLAYER;
-			break;
+		break;
 
 	case SEEK_PLAYER:
+		m_seekComponent->setTarget(GameManager::getInstance()->getAgent2());
+		if (!GameManager::getInstance()->getAgent2()->getHasBall())
+			m_currentState = SEEK_BALL;
 		break;
 
 	case SEEK_GOAL:
+		m_seekComponent->setTarget(GameManager::getInstance()->getRightGoal());
+		if (!getHasBall())
+			m_currentState = SEEK_BALL;
 		break;
 	}
 }
