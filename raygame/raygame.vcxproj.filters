@@ -86,6 +86,15 @@
     <ClCompile Include="SeekCGComponent.cpp">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="WanderCGComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="ShootComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -159,6 +168,15 @@
     </ClInclude>
     <ClInclude Include="SeekCGComponent.h">
       <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="WanderCGComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ShootComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

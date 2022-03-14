@@ -6,7 +6,8 @@
 #include "SteeringComponent.h"
 #include "MoveComponent.h"
 #include "Transform2D.h"
-#include "Character.h"
+#include "WanderCGComponent.h"
+#include "ShieldCGComponent.h"
 
 
 Agent1::Agent1(float x, float y, const char* name, float maxForce, float maxSpeed, float health) : Character(x, y, name, maxForce, maxSpeed, health)
@@ -18,15 +19,20 @@ Agent1::Agent1(float x, float y, const char* name, float maxForce, float maxSpee
 void Agent1::onCollision(Actor* actor)
 {
 	Character::onCollision(actor);
+
+	if (actor->getName() == "Agent2")
+		dynamic_cast<Character*>(actor)->takeDamage();
 }
 
 void Agent1::start()
 {
 	Character::start();
 	
-	m_seekComponent->setTarget(GameManager::getInstance()->getAgent2());
-
+	m_seekComponent = new SeekCGComponent(1000);
+	m_wanderComponent = new WanderCGComponent(200, 50, 600);
+	//add steering behaviours
 	addComponent(m_seekComponent);
+	addComponent(m_wanderComponent);
 	
 }
 
@@ -37,7 +43,7 @@ void Agent1::update(float deltaTime)
 	switch (m_currentState)
 	{
 	case SEEK_BALL:
-		m_seekComponent->setTarget(GameManager::getInstance()->getBallPosition);
+		m_seekComponent->setTarget(GameManager::getInstance()->getBall());
 		if (getHasBall())
 			m_currentState = SEEK_GOAL;
 		else if (GameManager::getInstance()->getAgent1()->getHasBall())
@@ -46,7 +52,7 @@ void Agent1::update(float deltaTime)
 
 	case SEEK_PLAYER:
 		m_seekComponent->setTarget(GameManager::getInstance()->getAgent2());
-		if (!GameManager::getInstance()->getAgent2()->getHasBall())
+		if (!GameManager::getInstance()->getAgent1()->getHasBall())
 			m_currentState = SEEK_BALL;
 		break;
 

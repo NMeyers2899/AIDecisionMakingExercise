@@ -3,6 +3,9 @@
 #include "ActorArray.h"
 #include <Vector2.h>
 
+class WanderCGComponent;
+class SheildCGComponent;
+
 enum State
 {
     SEEK_BALL,
@@ -34,5 +37,9 @@ public:
 private:
     State m_currentState = SEEK_BALL;
     SeekCGComponent* m_seekComponent;
+    WanderCGComponent* m_wanderComponent;
+    SheildCGComponent* m_sheild;
+    float m_health = 3;
+    float m_timer = 0;
 };
 
