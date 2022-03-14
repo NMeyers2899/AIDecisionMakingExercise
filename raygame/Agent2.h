@@ -3,7 +3,9 @@
 
 enum State
 {
-
+    CHASE_BALL,
+    CHASE_PLAYER,
+    SEEK_GOAL
 };
 
 class Agent2 :
@@ -26,7 +28,7 @@ public:
     virtual void onDamageRecieved() {};
 
 private:
-    State m_currentState;
+    State m_currentState = CHASE_BALL;
 };
 
 
