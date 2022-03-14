@@ -4,6 +4,7 @@
 #include "Goal.h"
 #include "SeekNMComponent.h"
 #include "FleeNMComponent.h"
+#include "WanderNMComponent.h"
 #include "Transform2D.h"
 #include "NMShield.h"
 
@@ -23,14 +24,17 @@ void Agent2::onCollision(Actor* actor)
 void Agent2::start()
 {
 	Character::start(); Character::start();
-	m_seekComponent = new SeekNMComponent(2000);
+	m_seekComponent = new SeekNMComponent(1000);
 	m_fleeComponent = new FleeNMComponent(200);
+	m_wanderComponent = new WanderNMComponent(200, 50, 600);
 	NMShield* agentShield = new NMShield(Engine::getScreenWidth() - 250.0f, 400, "Agent2", 50, 50, 3);
 	agentShield->getTransform()->setScale({ 100, 100 });
 	getTransform()->addChild(agentShield->getTransform());
 	
 	//add steering behaviours here
 	addComponent(m_seekComponent);
+	addComponent(m_fleeComponent);
+	addComponent(m_wanderComponent);
 }
 
 void Agent2::update(float deltaTime)

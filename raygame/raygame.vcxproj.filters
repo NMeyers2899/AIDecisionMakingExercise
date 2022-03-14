@@ -92,6 +92,9 @@
     <ClCompile Include="NMShield.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WanderNMComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -171,6 +174,9 @@
     </ClInclude>
     <ClInclude Include="NMShield.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WanderNMComponent.h">
+      <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

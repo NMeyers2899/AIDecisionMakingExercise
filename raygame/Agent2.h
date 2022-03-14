@@ -3,6 +3,7 @@
 
 class SeekNMComponent;
 class FleeNMComponent;
+class WanderNMComponent;
 
 enum State
 {
@@ -34,6 +35,7 @@ private:
     State m_currentState = CHASE_BALL;
     SeekNMComponent* m_seekComponent;
     FleeNMComponent* m_fleeComponent;
+    WanderNMComponent* m_wanderComponent;
 
 };
 
