@@ -1,5 +1,15 @@
 #pragma once
 #include "Character.h"
+#include "ActorArray.h"
+#include <Vector2.h>
+
+enum State
+{
+    SEEK_BALL,
+    SEEK_PLAYER,
+    SEEK_GOAL
+};
+
 
 class Agent1 :
     public Character
@@ -19,5 +29,9 @@ public:
     virtual void update(float deltaTime) override;
     virtual void onDeath();
     virtual void onDamageRecieved() {};
+
+private:
+    State m_currentState;
+
 };
 
