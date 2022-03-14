@@ -1,6 +1,9 @@
 #pragma once
 #include "Character.h"
 
+class SeekNMComponent;
+class FleeNMComponent;
+
 enum State
 {
     CHASE_BALL,
@@ -29,6 +32,9 @@ public:
 
 private:
     State m_currentState = CHASE_BALL;
+    SeekNMComponent* m_seekComponent;
+    FleeNMComponent* m_fleeComponent;
+
 };
 
 

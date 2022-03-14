@@ -4,11 +4,8 @@
 class SeekNMComponent : public SteeringComponent
 {
 public:
-	SeekNMComponent(MathLibrary::Vector2 targetPos, float steeringForce);
+	SeekNMComponent(float steeringForce) : SteeringComponent(nullptr, steeringForce) {}
 
 	MathLibrary::Vector2 calculateForce() override;
-
-private:
-	MathLibrary::Vector2 m_targetPos;
 };
 
