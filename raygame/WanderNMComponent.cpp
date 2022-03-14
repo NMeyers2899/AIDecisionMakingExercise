@@ -23,9 +23,9 @@ MathLibrary::Vector2 WanderNMComponent::calculateForce()
 	m_circlePosition = ownerPosition + (heading * m_circleDistance);
 
 	// Find two random points and then plot them on the circle.
-	float randNum = (rand() % 201);
+	float randNum1 = (rand() % 201) + 100; float randNum2 = (rand() % 201) + 100;
 
-	MathLibrary::Vector2 randomDirection = MathLibrary::Vector2{ cos(randNum), sin(randNum) } *m_radius;
+	MathLibrary::Vector2 randomDirection = MathLibrary::Vector2{ randNum1, randNum2 } * m_radius;
 
 	m_target = randomDirection + m_circlePosition;
 
