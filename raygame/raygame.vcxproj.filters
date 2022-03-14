@@ -89,6 +89,9 @@
     <ClCompile Include="FleeNMComponent.cpp">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="NMShield.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -165,6 +168,9 @@
     </ClInclude>
     <ClInclude Include="FleeNMComponent.h">
       <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="NMShield.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

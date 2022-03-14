@@ -5,6 +5,7 @@
 #include "SeekNMComponent.h"
 #include "FleeNMComponent.h"
 #include "Transform2D.h"
+#include "NMShield.h"
 
 Agent2::Agent2(float x, float y, const char* name, float maxForce, float maxSpeed, float health) : Character(x, y, name, maxForce, maxSpeed, health)
 {
@@ -22,8 +23,10 @@ void Agent2::onCollision(Actor* actor)
 void Agent2::start()
 {
 	Character::start(); Character::start();
-	m_seekComponent = new SeekNMComponent(50);
-	m_fleeComponent = new FleeNMComponent(40);
+	m_seekComponent = new SeekNMComponent(2000);
+	m_fleeComponent = new FleeNMComponent(200);
+	NMShield* agentShield = new NMShield(Engine::getScreenWidth() - 250.0f, 400, "Agent2", 50, 50, 3);
+	getTransform()->addChild(agentShield->getTransform());
 	
 	//add steering behaviours here
 	addComponent(m_seekComponent);
